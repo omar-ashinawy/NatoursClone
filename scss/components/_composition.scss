@@ -1,0 +1,55 @@
+.composition{
+    position: relative;
+    &__photo{
+        position: absolute;
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, 0.38);
+        border-radius: 2px;
+        z-index: 10;
+        outline-offset: 2rem; // outline is like the border but has more properties like offset between the outline (border) and the element
+        transition: all .2s;
+        @include respond(tab-port) {
+            float: left;
+            position: relative;
+            width: 33.3333333%;
+            box-shadow: 0 1.5rem 2rem rgba($color-black, 0.2);
+        }
+
+        &--p1{
+            top: -2rem;
+            left: 0;
+            @include respond(tab-port) {
+                top: 0;
+                transform: scale(1.2);
+            }
+        }
+        &--p2{
+            top: 2rem;
+            right: 0;
+            @include respond(tab-port) {
+                top: -1rem;
+                transform: scale(1.3);
+                z-index: 100;
+            }
+        }
+        &--p3{
+            left: 20%;
+            top: 10rem;
+            @include respond(tab-port) {
+                top: 1rem;
+                left: 0;
+                transform: scale(1.1);
+            }
+        }
+        &:hover{
+            transform: scale(1.1) translateY(-.2rem);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, 0.6);
+            outline: 1.5rem solid $color-primary;
+            z-index: 20;
+        }
+    }
+
+    &:hover &__photo:not(:hover){
+        transform: scale(0.9);
+    }
+}

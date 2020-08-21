@@ -1,0 +1,37 @@
+.header{
+    position: relative;
+    height: 85vh;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/hero-small.jpg);
+    background-size: cover;
+    background-position: top;
+
+    @supports (clip-path: polygon(0 0)){
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* Specify the four coordinates of the polygon that will appear from the image clockwise */
+        height: 95vh;
+    }
+
+    @include respond(tab-port){
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
+
+    @media (min-resolution: 192dpi) and (min-width: 600px),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 600px),
+    (min-width: 2000px) {
+        background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../img/hero.jpg);
+    }
+    &__logo-container{
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+    &__logo{
+        height: 3.5rem;
+    }
+    &__main-content{
+        position: absolute;
+        top: 40%;
+        left: 50%; /* These values are relative to the parent element */
+        transform: translate(-50%, -50%); /* These values here are relative to the element itself not its parent */
+        text-align: center;
+    }
+}

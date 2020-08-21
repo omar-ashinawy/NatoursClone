@@ -1,0 +1,52 @@
+/*
+MEDIA QUERY MANAGER
+
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800] is where our normal styles apply
+1800px + :      Big desktop
+
+JONAS preferred order: base >> layout >> pages >> components
+
+MEDIA QUERIES WIDTH IS DEFINED BY em.
+1em: 16px
+37.5em: 600px
+56.25em: 900px
+75em: 600px
+112.5em: 900px
+*/
+
+@mixin respond($device){
+    @if ($device == phone) {
+        @media only screen and (max-width: 37.5em) { @content };
+    }
+    @if ($device == tab-port) {
+        @media only screen and (max-width: 56.25em) { @content };
+    }
+    @if ($device == tab-land) {
+        @media only screen and (max-width: 75em) { @content };
+    }
+    @if ($device == big-desk) {
+        @media only screen and (max-width: 112.5em) { @content };
+    }
+}
+
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@mixin absTopLeft {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

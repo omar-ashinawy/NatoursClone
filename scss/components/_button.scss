@@ -1,0 +1,84 @@
+
+.btn{
+    &, &:link, &:visited{
+        position: relative;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-family: inherit;
+        font-size: $font-size-default;
+        padding: 1.7rem 4rem;
+        display: inline-block; /* for the anchor tag to be a block*/
+        border-radius: 10rem;
+        border: none;
+        cursor: pointer;
+        transition-property: transform, box-shadow;
+        transition-duration: 0.2s;
+    }
+    &:hover{
+        transform: translateY(-0.3rem);
+        box-shadow: 0 10px 20px rgba($color-black, 0.2);
+        &::after{
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    &:active, &:focus{
+        outline: none;
+        transform: translateY(-0.1rem);
+        box-shadow: 0 5px 10px rgba($color-black, 0.2);
+    }
+    &--white{
+        background-color: $color-white;
+        color: $color-dark-grey;
+        &::after{
+            background-color: $color-white;
+        }
+    }
+    &--green{
+        background-color: $color-primary;
+        color: $color-white;
+        &::after{
+            background-color: $color-primary;
+        }
+    }
+    &::after{
+        content: "";
+        border-radius: 10rem;
+        display: inline-block;
+        @include absTopLeft;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        transition-property: all;
+        transition-duration: 0.4s;
+    }
+    &--animated{
+        animation-name: moveInBottom;
+        animation-duration: 0.2s;
+        animation-timing-function: ease-out;
+        animation-delay: 0.75s;
+        animation-fill-mode: backwards; /* for the button not to appear in the beginning of the animation */
+    }
+}
+
+.btn-text{
+    &:link, &:visited{
+        font-size: $font-size-default;
+        display: inline-block;
+        text-decoration: none;
+        color: $color-primary;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px; // these small units remains the same (approx.) on every device.
+        transition: all 0.2s;
+    }
+    &:hover{
+        background-color: $color-primary;
+        color: $color-white;
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    }
+    &:active{
+        transform: translateY(0);
+        box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    }
+}

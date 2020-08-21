@@ -1,0 +1,40 @@
+
+@keyframes moveInLeft{
+    /* VERY IMPORTANT NOTE: Browser is optimized for animating opacity and transform properties */
+    0%{
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    85%{
+        transform: translateX(2rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+@keyframes moveInRight{
+    /* VERY IMPORTANT NOTE: Browser is optimized for animating opacity and transform properties */
+    0%{
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    85%{
+        transform: translateX(-2rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+@keyframes moveInBottom{
+    /* VERY IMPORTANT NOTE: Browser is optimized for animating opacity and transform properties */
+    0%{
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
